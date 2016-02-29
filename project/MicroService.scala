@@ -3,6 +3,7 @@ import sbt.Tests.{SubProcess, Group}
 import sbt._
 import uk.gov.hmrc.sbtdistributables.SbtDistributablesPlugin
 import uk.gov.hmrc.sbtdistributables.SbtDistributablesPlugin._
+import uk.gov.hmrc.versioning.SbtGitVersioning
 
 
 
@@ -58,7 +59,7 @@ trait MicroService {
         Resolver.typesafeRepo("releases")
       )
     )
-
+    .enablePlugins(SbtDistributablesPlugin, SbtAutoBuildPlugin, SbtGitVersioning)
 }
 
 private object TestPhases {
